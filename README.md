@@ -55,20 +55,28 @@ Portafolio web interactivo y moderno de **Carlos Andrés Oviedo**, Tecnólogo en
 
 ---
 
-## 🚀 Despliegue en GitHub Pages
+## 🚀 Despliegue en GitHub Pages (3 Métodos Compatibles)
 
-Este proyecto ya incluye el workflow automatizado en `.github/workflows/deploy.yml`.
+Este proyecto está configurado para que funcione con cualquiera de los métodos de GitHub Pages:
 
-Para activarlo en tu repositorio de GitHub:
-1. Sube los cambios a la rama `main`:
+### Método 1: GitHub Actions (Recomendado y 100% automático)
+1. En tu repositorio en GitHub, ve a **Settings** > **Pages**.
+2. En **Build and deployment** > **Source**, selecciona **GitHub Actions** (en lugar de "Deploy from a branch").
+3. Haz push a tu repositorio (`main` o `master`).
+4. Ve a la pestaña **Actions** para ver la compilación. En menos de 1 minuto tu portafolio estará activo en `https://igorak404.github.io/Portafolio-Carlos-Oviedo/`.
+
+### Método 2: Despliegue con un solo comando (`npm run deploy`)
+1. En tu terminal local ejecuta:
    ```bash
-   git add .
-   git commit -m "feat: portafolio compatible con GitHub Pages"
-   git push origin main
+   npm run deploy
    ```
-2. En tu repositorio en GitHub, ve a **Settings** > **Pages**.
-3. En **Build and deployment** > **Source**, selecciona **GitHub Actions**.
-4. ¡Listo! Cada vez que hagas un push a `main`, se compilará y desplegará automáticamente.
+2. Esto compila el proyecto y lo sube automáticamente a la rama `gh-pages`.
+3. En **Settings** > **Pages**, asegúrate de que la rama seleccionada sea `gh-pages` y carpeta `/ (root)`.
+
+### Método 3: Desde la carpeta `/docs`
+1. Cada vez que ejecutas `npm run build`, se crea la carpeta `docs/` lista para producción.
+2. Sube la carpeta `docs/` a tu repositorio.
+3. En **Settings** > **Pages**, en **Source** selecciona **Deploy from a branch**, rama `main` (o `master`) y carpeta **/docs**.
 
 ---
 
