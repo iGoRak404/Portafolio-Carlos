@@ -38,11 +38,11 @@ function CustomCursor() {
   }, [])
 
   return (
-    <>
+    <div className="hidden md:block pointer-events-none">
       <div ref={dotRef} className="cursor-dot" />
       <div ref={ringRef} className="cursor-ring" />
       <div ref={crossRef} className="cursor-crosshair" />
-    </>
+    </div>
   )
 }
 
@@ -175,9 +175,9 @@ function Hero() {
       <div className="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-16 w-full">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <div className="animate-fade-up animate-fade-up-delay-1 inline-flex items-center gap-2 bg-[var(--primary)]/8 border border-[var(--primary)]/30 rounded-full px-4 py-1.5 mb-8">
-              <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] animate-pulse" />
-              <span className="font-mono text-xs text-[var(--primary)] tracking-widest uppercase">Tecnólogo ADSO · Desarrollador · SENA</span>
+            <div className="animate-fade-up animate-fade-up-delay-1 inline-flex items-center gap-2 bg-[var(--primary)]/8 border border-[var(--primary)]/30 rounded-full px-3.5 sm:px-4 py-1.5 mb-6 sm:mb-8 max-w-full">
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary)] animate-pulse flex-shrink-0" />
+              <span className="font-mono text-[11px] sm:text-xs text-[var(--primary)] tracking-wider sm:tracking-widest uppercase truncate sm:whitespace-normal">Tecnólogo ADSO · Desarrollador · SENA</span>
             </div>
 
             <h1 className="animate-fade-up animate-fade-up-delay-2 font-mono font-black leading-tight mb-6">
@@ -234,38 +234,38 @@ function Hero() {
 function SobreMi() {
   return (
     <Section id="sobre-mi" className="py-24 md:py-32 relative z-10">
-      <div className="max-w-6xl mx-auto px-6">
-        <Reveal className="flex items-center gap-3 mb-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 w-full">
+        <Reveal className="flex items-center gap-3 mb-12 md:mb-16">
           <span className="font-mono text-xs text-[var(--primary)] tracking-[0.2em] uppercase">01</span>
           <div className="w-8 h-px bg-[var(--primary)]/40" />
           <span className="font-mono text-xs text-[var(--muted)] tracking-[0.15em] uppercase">Sobre mí</span>
         </Reveal>
 
-        <div className="grid md:grid-cols-5 gap-12 items-start">
-          <Reveal className="md:col-span-2">
-            <div className="border-gradient rounded-xl bg-[var(--card)] p-6 space-y-6">
-              <div className="flex items-center gap-4">
+        <div className="grid md:grid-cols-5 gap-8 md:gap-12 items-start w-full min-w-0">
+          <Reveal className="md:col-span-2 w-full min-w-0 flex justify-center md:block">
+            <div className="border-gradient rounded-xl bg-[var(--card)] p-4 sm:p-6 space-y-5 sm:space-y-6 w-full max-w-sm sm:max-w-md mx-auto md:max-w-none md:mx-0 min-w-0">
+              <div className="flex items-center gap-3.5 sm:gap-4 min-w-0">
                 <div className="relative flex-shrink-0">
-                  <div className="w-16 h-16 rounded-xl overflow-hidden border border-[var(--primary)]/40">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl overflow-hidden border border-[var(--primary)]/40">
                     <img src={getAssetUrl("assets/profile.png")} alt="Carlos Oviedo" className="w-full h-full object-cover object-top" />
                   </div>
-                  <span className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-[var(--primary)] border-2 border-[var(--card)]" />
+                  <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-[var(--primary)] border-2 border-[var(--card)]" />
                 </div>
-                <div>
-                  <p className="font-semibold text-[var(--fg)] text-base">Carlos Oviedo</p>
-                  <p className="font-mono text-xs text-[var(--muted)] mt-0.5">carlosandresoviedo21@gmail.com</p>
+                <div className="min-w-0 flex-1">
+                  <p className="font-semibold text-[var(--fg)] text-base truncate">Carlos Oviedo</p>
+                  <p className="font-mono text-[11px] sm:text-xs text-[var(--muted)] mt-0.5 truncate" title="carlosandresoviedo21@gmail.com">carlosandresoviedo21@gmail.com</p>
                 </div>
               </div>
-              <div className="space-y-3">
+              <div className="space-y-3 min-w-0">
                 {[
                   { icon: <GradIcon />, text: "SENA — Tecnólogo ADSO (En curso)" },
                   { icon: <MonitorIcon />, text: "Aprendiz ADSO · Desarrollador" },
                   { icon: <PinIcon />, text: "Colombia" },
                   { icon: <RocketIcon />, text: "Disponible para oportunidades" },
                 ].map((item) => (
-                  <div key={item.text} className="flex items-center gap-3 text-sm">
+                  <div key={item.text} className="flex items-center gap-3 text-xs sm:text-sm min-w-0">
                     <span className="w-7 h-7 rounded-md bg-[var(--surface)] flex items-center justify-center text-[var(--primary)] flex-shrink-0">{item.icon}</span>
-                    <span className="text-[var(--muted)]">{item.text}</span>
+                    <span className="text-[var(--muted)] min-w-0 leading-snug">{item.text}</span>
                   </div>
                 ))}
               </div>
@@ -308,15 +308,15 @@ function SobreMi() {
               </div>
             </Reveal>
             <Reveal delay={240}>
-              <div className="grid grid-cols-3 gap-4 pt-4">
+              <div className="grid grid-cols-3 gap-2.5 sm:gap-4 pt-4">
                 {[
                   { val: "ADSO", label: "Programa SENA" },
                   { val: "Dev", label: "Especialidad" },
                   { val: "2024", label: "Inicio formación" },
                 ].map((s) => (
-                  <div key={s.label} className="bg-[var(--surface)] border border-[var(--card-border)] rounded-lg p-4 text-center hover:border-[var(--primary)]/30 transition-colors">
-                    <p className="font-mono font-bold text-[var(--primary)] text-lg">{s.val}</p>
-                    <p className="font-mono text-xs text-[var(--muted)] mt-1 tracking-wide">{s.label}</p>
+                  <div key={s.label} className="bg-[var(--surface)] border border-[var(--card-border)] rounded-lg p-2.5 sm:p-4 text-center hover:border-[var(--primary)]/30 transition-colors">
+                    <p className="font-mono font-bold text-[var(--primary)] text-base sm:text-lg">{s.val}</p>
+                    <p className="font-mono text-[10px] sm:text-xs text-[var(--muted)] mt-1 tracking-wide">{s.label}</p>
                   </div>
                 ))}
               </div>
@@ -376,19 +376,19 @@ function Habilidades() {
           </h2>
         </Reveal>
 
-        <Reveal delay={100} className="flex gap-2 mb-10">
-          <button onClick={() => setTab("tecnicas")} className={`font-mono text-xs tracking-widest uppercase px-5 py-2.5 rounded-lg border transition-all duration-200 ${tab === "tecnicas" ? "bg-[var(--primary)] text-[var(--bg)] border-[var(--primary)] font-bold" : "bg-transparent text-[var(--muted)] border-[var(--card-border)] hover:border-[var(--primary)]/40 hover:text-[var(--fg)]"}`}>Técnicas</button>
-          <button onClick={() => setTab("blandas")} className={`font-mono text-xs tracking-widest uppercase px-5 py-2.5 rounded-lg border transition-all duration-200 ${tab === "blandas" ? "bg-[var(--primary)] text-[var(--bg)] border-[var(--primary)] font-bold" : "bg-transparent text-[var(--muted)] border-[var(--card-border)] hover:border-[var(--primary)]/40 hover:text-[var(--fg)]"}`}>Habilidades blandas</button>
+        <Reveal delay={100} className="flex gap-2 mb-8 sm:mb-10">
+          <button onClick={() => setTab("tecnicas")} className={`font-mono text-xs tracking-widest uppercase px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg border transition-all duration-200 ${tab === "tecnicas" ? "bg-[var(--primary)] text-[var(--bg)] border-[var(--primary)] font-bold" : "bg-transparent text-[var(--muted)] border-[var(--card-border)] hover:border-[var(--primary)]/40 hover:text-[var(--fg)]"}`}>Técnicas</button>
+          <button onClick={() => setTab("blandas")} className={`font-mono text-xs tracking-widest uppercase px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg border transition-all duration-200 ${tab === "blandas" ? "bg-[var(--primary)] text-[var(--bg)] border-[var(--primary)] font-bold" : "bg-transparent text-[var(--muted)] border-[var(--card-border)] hover:border-[var(--primary)]/40 hover:text-[var(--fg)]"}`}>Habilidades blandas</button>
         </Reveal>
 
         {tab === "tecnicas" && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3 md:gap-4">
             {technicalSkills.map((sk, i) => (
               <Reveal key={sk.name} delay={i * 40}>
-                <div className="skill-card h-full bg-[var(--card)] border border-[var(--card-border)] rounded-xl p-5">
-                  <div className="w-11 h-11 rounded-lg flex items-center justify-center mb-4" style={{ background: sk.accent + "18", color: sk.accent }}>{sk.icon}</div>
-                  <p className="font-mono font-bold text-[var(--fg)] mb-2 text-sm">{sk.name}</p>
-                  <p className="text-[var(--muted)] text-sm leading-relaxed">{sk.desc}</p>
+                <div className="skill-card h-full bg-[var(--card)] border border-[var(--card-border)] rounded-xl p-3 sm:p-4 md:p-5 flex flex-col md:block items-center md:items-start text-center md:text-left justify-center">
+                  <div className="w-10 h-10 md:w-11 md:h-11 rounded-lg flex items-center justify-center mb-2 md:mb-4 flex-shrink-0" style={{ background: sk.accent + "18", color: sk.accent }}>{sk.icon}</div>
+                  <p className="font-mono font-bold text-[var(--fg)] text-xs md:text-sm md:mb-2">{sk.name}</p>
+                  <p className="hidden md:block text-[var(--muted)] text-sm leading-relaxed">{sk.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -500,7 +500,7 @@ const projects = [
     desc: "Videojuego educativo desarrollado en equipo como proyecto ADSO en el SENA. Destiny Tower: un dungeon crawler de acción y RPG en pixel art con 100 pisos y narrativa interactiva.",
     tags: ["Game Dev", "Trabajo en equipo", "Pitch", "ADSO"],
     img: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&h=500&fit=crop&auto=format",
-    status: "Completado",
+    status: "En pausa",
     demo: null,
     repo: "https://github.com/acgc-sena-adso26/game-on.git",
     team: ["Andrés Gómez", "Carlos Oviedo", "Isabella Torres"],
@@ -905,7 +905,7 @@ function Proyectos() {
               <div className="project-card h-full bg-[var(--card)] border border-[var(--card-border)] rounded-xl overflow-hidden flex flex-col">
                 <div className="relative overflow-hidden bg-[var(--surface)] h-48">
                   <img src={p.img} alt={p.title} className="w-full h-full object-cover opacity-70 transition-all duration-500" />
-                  <span className={`absolute top-3 right-3 font-mono text-xs px-2 py-0.5 rounded-full ${p.status === "Completado" ? "bg-[var(--primary)]/20 text-[var(--primary)] border border-[var(--primary)]/40" : p.status?.startsWith("Personal") ? "border" :"bg-[var(--accent)]/20 text-[var(--accent)] border border-[var(--accent)]/40"}`} style={p.status?.startsWith("Personal") ? { background: "rgba(236,72,153,0.15)", color: "#f472b6", borderColor: "rgba(236,72,153,0.4)" } : {}}>{p.status}</span>
+                  <span className={`absolute top-3 right-3 font-mono text-xs px-2.5 py-0.5 rounded-full ${p.status === "Completado" ? "bg-[var(--primary)]/20 text-[var(--primary)] border border-[var(--primary)]/40" : p.status === "En pausa" ? "bg-amber-500/20 text-amber-400 border border-amber-500/40" : p.status?.startsWith("Personal") ? "border" : "bg-[var(--accent)]/20 text-[var(--accent)] border border-[var(--accent)]/40"}`} style={p.status?.startsWith("Personal") ? { background: "rgba(236,72,153,0.15)", color: "#f472b6", borderColor: "rgba(236,72,153,0.4)" } : {}}>{p.status}</span>
                 </div>
                 <div className="p-5 flex flex-col flex-1 gap-3">
                   <h3 className="font-mono font-bold text-[var(--fg)]">{p.title}</h3>
@@ -1399,17 +1399,17 @@ function CertModal({ cert, onClose }: { cert: CertDoc; onClose: () => void }) {
           )}
         </div>
 
-        <div className="flex items-center justify-between gap-4 px-6 py-4 border-t border-[var(--card-border)] bg-[var(--card)] flex-shrink-0">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 px-4 sm:px-6 py-3 sm:py-4 border-t border-[var(--card-border)] bg-[var(--card)] flex-shrink-0">
           <span className="font-mono text-xs px-3 py-1 rounded-full border flex items-center gap-1.5" style={{ color: cert.accent, background: cert.accent + "14", borderColor: cert.accent + "40" }}>
             <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
             {cert.type}
           </span>
-          <div className="flex gap-3">
-            <a href={cert.filePath} target="_blank" rel="noopener noreferrer" className="btn-outline">
+          <div className="flex gap-2 sm:gap-3 w-full sm:w-auto">
+            <a href={cert.filePath} target="_blank" rel="noopener noreferrer" className="btn-outline flex-1 sm:flex-initial justify-center text-xs py-2 px-3 sm:py-2.5 sm:px-5">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
               Nueva pestaña
             </a>
-            <a href={cert.filePath} download className="btn-primary">
+            <a href={cert.filePath} download className="btn-primary flex-1 sm:flex-initial justify-center text-xs py-2 px-3 sm:py-2.5 sm:px-5">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
               Descargar
             </a>

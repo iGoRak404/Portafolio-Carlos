@@ -137,8 +137,20 @@ body {
 }
 .project-card:hover img { opacity: 0.9 !important; transform: scale(1.05); }
 
-@media (pointer: fine) {
+/* ─── Cursor visibility: Active on computer (desktop), removed only on mobile (phone) ─── */
+@media (min-width: 769px) {
   * { cursor: none !important; }
+}
+
+@media (max-width: 768px) {
+  .cursor-dot,
+  .cursor-ring,
+  .cursor-crosshair {
+    display: none !important;
+  }
+  * {
+    cursor: auto !important;
+  }
 }
 
 /* ─── Futuristic cursor ──────────────────────────────────────────────── */
